@@ -57,7 +57,7 @@ CYEYTotalProjectDlg::CYEYTotalProjectDlg(CWnd* pParent /*=nullptr*/)
 	
 	m_pDlgCalendar	= new CCalendarDlg(this);
 	m_pDlgFileIO	= new CDlgFileIO(this);
-
+	m_pDlgPosition = new CDlgPosition(this);
 }
 
 CYEYTotalProjectDlg::~CYEYTotalProjectDlg()
@@ -85,6 +85,9 @@ BEGIN_MESSAGE_MAP(CYEYTotalProjectDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(TVN_SELCHANGED, IDC_TREE_CONTROL, &CYEYTotalProjectDlg::OnTvnSelchangedTreeControl)
+	ON_WM_MOVING()
+	ON_WM_MOUSEMOVE()
+	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 
@@ -184,9 +187,10 @@ void CYEYTotalProjectDlg::TreeCtrlSetting()
 	m_hParent1 = m_TreeCtrl.InsertItem((LPCTSTR)"Control", 0, 0, m_TreeRoot, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Calendar", 0, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"File Input & Output", 1, 0, m_hParent1, TVI_LAST);
+	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Mouse Position & Dialog Position", 1, 0, m_hParent1, TVI_LAST);
 	
 	m_hParent2 = m_TreeCtrl.InsertItem((LPCTSTR)"두번째항목", 0, 0, m_TreeRoot, TVI_LAST);
-	m_hChild2 = m_TreeCtrl.InsertItem((LPCTSTR)"두번째하위항목", 0, 0, m_hParent2, TVI_LAST);
+	m_hChild2 = m_TreeCtrl.InsertItem((LPCTSTR)"Toast Test", 0, 0, m_hParent2, TVI_LAST);
 
 }
 
@@ -207,7 +211,7 @@ void CYEYTotalProjectDlg::DialogCreation()
 #define WINDOW_SIZE_H 850
 #define WINDOW_SIZE_V 600
 #define WINDOW_START_X 280
-#define WINDOW_START_Y 5
+#define WINDOW_START_Y 10
 
 	//Dialog Creation
 	m_pDlgCalendar->Create(CCalendarDlg::IDD, this);
@@ -215,6 +219,9 @@ void CYEYTotalProjectDlg::DialogCreation()
 
 	m_pDlgFileIO->Create(CDlgFileIO::IDD, this);
 	m_pDlgFileIO->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
+
+	m_pDlgPosition->Create(CDlgPosition::IDD, this);
+	m_pDlgPosition->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
 
 	//DialogShow();
 }
@@ -227,12 +234,52 @@ void CYEYTotalProjectDlg::DialogShow()
 
 	m_pDlgCalendar->ShowWindow(SW_HIDE);
 	m_pDlgFileIO->ShowWindow(SW_HIDE);
-
+	m_pDlgPosition->ShowWindow(SW_HIDE);
+	 
 	if (strCurText == "Calendar")
 		m_pDlgCalendar->ShowWindow(SW_SHOW);
 	else if (strCurText == "File Input & Output")
 		m_pDlgFileIO->ShowWindow(SW_SHOW);
-
+	else if (strCurText == "Mouse Position & Dialog Position")
+		m_pDlgPosition->ShowWindow(SW_SHOW);
 }
 //************************************************************************************************************************END
 
+
+//Set Data Main -> Child*****************************************************************************************************start
+void CYEYTotalProjectDlg::OnMoving(UINT fwSide, LPRECT pRect)
+{
+	CDialog::OnMoving(fwSide, pRect);
+	
+	CRect rt;
+	rt.top = pRect->top;
+	rt.bottom = pRect->bottom;
+	rt.left = pRect->left;
+	rt.right = pRect->right;
+
+	m_pDlgPosition->SetWindowPosAndRect(rt);
+}
+//***************************************************************************************************************************End
+
+void CYEYTotalProjectDlg::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+
+	CDialog::OnMouseMove(nFlags, point);
+	CRect rt;
+
+	GetWindowRect(&rt);
+	m_pDlgPosition->SetWindowPosAndRect(rt);
+	m_pDlgPosition->SetMousePos(point);
+}
+
+
+void CYEYTotalProjectDlg::OnSizing(UINT fwSide, LPRECT pRect)
+{
+	CDialog::OnSizing(fwSide, pRect);
+
+	CRect rt;
+
+	GetWindowRect(&rt);
+	m_pDlgPosition->SetWindowPosAndRect(rt);
+}

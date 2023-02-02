@@ -170,6 +170,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./Src/Toast</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -193,6 +194,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Src\Dlg\CCalendarDlg.h" />
     <ClInclude Include="Src\Dlg\CDlgFileIO.h" />
+    <ClInclude Include="Src\Dlg\CDlgPosition.h" />
     <ClInclude Include="Src\Dlg\YEYTotalProjectDlg.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="YEYTotalProject.h" />
@@ -206,6 +208,7 @@
     </ClCompile>
     <ClCompile Include="Src\Dlg\CCalendarDlg.cpp" />
     <ClCompile Include="Src\Dlg\CDlgFileIO.cpp" />
+    <ClCompile Include="Src\Dlg\CDlgPosition.cpp" />
     <ClCompile Include="Src\Dlg\YEYTotalProjectDlg.cpp" />
     <ClCompile Include="YEYTotalProject.cpp" />
   </ItemGroup>

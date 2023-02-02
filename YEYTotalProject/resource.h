@@ -9,6 +9,7 @@
 #define IDR_MAINFRAME                   128
 #define IDD_DLG_CALENDAR                130
 #define IDD_DLG_FILEIO                  132
+#define IDD_DLG_POSITION                136
 #define IDC_TREE_CONTROL                1000
 #define IDC_MONTHCALENDAR               1001
 #define IDC_DATETIMEPICKER1             1002
@@ -46,23 +47,42 @@
 #define IDC_RADIO_TXT_FORMAT_16_L       1033
 #define IDC_RADIO_TXT_FORMAT_32_B       1034
 #define IDC_RADIO_TXT_FORMAT_32_L       1035
+#define IDC_STATIC_POSITION_PRINT       1035
 #define IDC_RADIO_TXT_FORMAT_           1036
+#define IDC_DLG_SIZE_PRINT              1036
 #define IDC_EDIT_FOLDER_PATH            1037
 #define IDC_RADIO_LOAD_METHOD1          1038
 #define IDC_RADIO_LOAD_METHOD2          1039
 #define IDC_BTN_OPEN_DATA               1040
 #define IDC_EDIT_OPEN_LOADDATA          1041
 #define IDC_BTN_WRITE_DATA              1042
+#define IDC_BTN_SAVE_SPECIFIC_POS       1042
 #define IDC_BTN_WRITE_CONTINUEDATA      1043
+#define IDC_EDIT_WIDTH_MAIN             1043
 #define IDC_EDIT_ACCUMULATE_FILE        1044
+#define IDC_EDIT_HEIGHT_MAIN            1044
+#define IDC_BTN_COPY_1                  1045
+#define IDC_BTN_SAVE_SPECIFIC_POS_CLIENT 1045
+#define IDC_EDIT_FILECOPY_SRC           1046
+#define IDC_EDIT_WIDTH_CLLENT           1046
+#define IDC_EDIT_FILECOPY_DST           1047
+#define IDC_EDIT_HEIGHT_CLIENT          1047
+#define IDC_BTN_COPY_2                  1048
+#define IDC_DLG_POSITION_PRINT          1049
+#define IDC_BTN_CHANGE_DLG_SIZE         1052
+#define IDC_EDIT_DLGSIZE_X              1053
+#define IDC_EDIT_DLGSIZE_Y              1054
+#define IDC_BTN_CHANGE_DLG_CLIENT_SIZE  1055
+#define IDC_EDIT_DLGSIZE_CLIENT_X       1056
+#define IDC_EDIT_DLGSIZE_CLIENT_Y       1057
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        134
+#define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1032
+#define _APS_NEXT_CONTROL_VALUE         1045
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

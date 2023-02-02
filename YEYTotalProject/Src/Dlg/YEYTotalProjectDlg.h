@@ -3,6 +3,7 @@
 //
 #include "CCalendarDlg.h"
 #include "CDlgFileIO.h"
+#include "CDlgPosition.h"
 
 #pragma once
 class CCalendarDlg;
@@ -41,18 +42,27 @@ public:
 	//Tree Ctrl*********************************************************************************
 	CTreeCtrl m_TreeCtrl;
 	HTREEITEM m_TreeRoot, m_hParent1, m_hParent2 ,m_hChild1, m_hChild2 , m_hSelected;
-	void	TreeCtrlSetting();
 
-	afx_msg void OnTvnSelchangedTreeControl(NMHDR *pNMHDR, LRESULT *pResult);
+	void			TreeCtrlSetting();
+
+	afx_msg void	OnTvnSelchangedTreeControl(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void	OnMoving(UINT fwSide, LPRECT pRect);
+	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 	//******************************************************************************************
 
 
 	//New DIALOG Creation***********************************************************************
 	CCalendarDlg	*m_pDlgCalendar;
 	CDlgFileIO		*m_pDlgFileIO;
+	CDlgPosition	*m_pDlgPosition;
 
 	void			DialogCreation();
 	void			DialogShow();
 	//******************************************************************************************
 
+	//Toast Test********************************************************************************
+	
+	//******************************************************************************************
+
+	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 };

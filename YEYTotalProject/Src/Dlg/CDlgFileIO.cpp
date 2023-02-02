@@ -16,7 +16,8 @@ IMPLEMENT_DYNAMIC(CDlgFileIO, CDialog)
 CDlgFileIO::CDlgFileIO(CWnd* pParent /*=nullptr*/)
 	: CDialog(IDD_DLG_FILEIO, pParent)
 {
-
+		m_strFileCopySrc = "./TestFolder/CopyFile1.txt";
+		m_strFileCopyDest = "./TestFolder/CopyFile2.txt";
 }
 
 CDlgFileIO::~CDlgFileIO()
@@ -27,6 +28,8 @@ void CDlgFileIO::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST_MULTI_SELECTED, m_listMultiSelected);
+	DDX_Text(pDX, IDC_EDIT_FILECOPY_SRC, m_strFileCopySrc);
+	DDX_Text(pDX, IDC_EDIT_FILECOPY_DST, m_strFileCopyDest);
 }
 
 
@@ -38,6 +41,8 @@ BEGIN_MESSAGE_MAP(CDlgFileIO, CDialog)
 	ON_BN_CLICKED(IDC_BTN_OPEN_DATA, &CDlgFileIO::OnBnClickedBtnOpenData)
 	ON_BN_CLICKED(IDC_BTN_WRITE_DATA, &CDlgFileIO::OnBnClickedBtnWriteData)
 	ON_BN_CLICKED(IDC_BTN_WRITE_CONTINUEDATA, &CDlgFileIO::OnBnClickedBtnWriteContinuedata)
+	ON_BN_CLICKED(IDC_BTN_COPY_1, &CDlgFileIO::OnBnClickedBtnCopy1)
+	ON_BN_CLICKED(IDC_BTN_COPY_2, &CDlgFileIO::OnBnClickedBtnCopy2)
 END_MESSAGE_MAP()
 
 
@@ -281,6 +286,7 @@ void CDlgFileIO::OnBnClickedBtnOpenData()
 }
 //Data Load and Open************************************************************************************************End
 
+//1개의 파일 맨끝에 누적해서 글자 입력************************************************************************************************Start
 void CDlgFileIO::OnBnClickedBtnWriteData()
 {
 	CString strTestFilePath1 = "./TestFolder/Test1.txt";
@@ -312,3 +318,43 @@ void CDlgFileIO::OnBnClickedBtnWriteContinuedata()
 		fclose(file);
 	}
 }
+//1개의 파일 맨끝에 누적해서 글자 입력************************************************************************************************End
+
+//File Copy 중복 여부에따른 차이************************************************************************************************Start
+void CDlgFileIO::OnBnClickedBtnCopy1()
+{
+	UpdateData(TRUE);
+	CString strSrc = "", strDest = "";
+
+	GetDlgItemText(IDC_EDIT_FILECOPY_SRC, strSrc);
+	GetDlgItemText(IDC_EDIT_FILECOPY_DST, strDest);
+
+	//File이 존재하면 덮어쓰거나 새로 만든다.
+	BOOL bCheck = CopyFile(strSrc, strDest, FALSE);
+
+	if (bCheck == TRUE)
+		AfxMessageBox("File을 덮어쓰거나 새로 만들었습니다.\n 마지막인자는 FALSE");
+	else
+		AfxMessageBox("File을 덮어쓰거나 새로 만들지 못했습니다.\n 마지막인자는 FALSE");
+
+	UpdateData(FALSE);
+}
+
+void CDlgFileIO::OnBnClickedBtnCopy2()
+{
+	CString strSrc = "", strDest = "";
+	DeleteFile("./TestFolder/CopyFile2.txt");
+	GetDlgItemText(IDC_EDIT_FILECOPY_SRC, strSrc);
+	GetDlgItemText(IDC_EDIT_FILECOPY_DST, strDest);
+
+	//File이 존재하면 덮어쓰거나 새로 만든다.
+	BOOL bCheck = CopyFile(strSrc, strDest, TRUE);
+
+	if (bCheck == FALSE)
+		AfxMessageBox("File이 존재하여 새로 만들지 못했습니다.\n 마지막인자는 TRUE");
+	else
+		AfxMessageBox("File이 새로 만들어 졌습니다.\n 마지막인자는 TRUE");
+}
+//File Copy 중복 여부에따른 차이************************************************************************************************End
+
+
