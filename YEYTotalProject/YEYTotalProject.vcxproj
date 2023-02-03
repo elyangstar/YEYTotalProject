@@ -193,7 +193,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Src\Dlg\CCalendarDlg.h" />
-    <ClInclude Include="Src\Dlg\CDlgControlButtonRadio.h" />
+    <ClInclude Include="Src\Dlg\CDlgButtonCtrl.h" />
     <ClInclude Include="Src\Dlg\CDlgFileIO.h" />
     <ClInclude Include="Src\Dlg\CDlgPosition.h" />
     <ClInclude Include="Src\Dlg\CDlgPositionChild.h" />
@@ -209,7 +209,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Src\Dlg\CCalendarDlg.cpp" />
-    <ClCompile Include="Src\Dlg\CDlgControlButtonRadio.cpp" />
+    <ClCompile Include="Src\Dlg\CDlgButtonCtrl.cpp" />
     <ClCompile Include="Src\Dlg\CDlgFileIO.cpp" />
     <ClCompile Include="Src\Dlg\CDlgPosition.cpp" />
     <ClCompile Include="Src\Dlg\CDlgPositionChild.cpp" />
@@ -223,6 +223,12 @@
     <None Include="res\YEYTotalProject.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\Downloads\CLedButton_src\res\greenButton.bmp" />
+    <Image Include="..\..\..\Downloads\CLedButton_src\res\redButton.bmp" />
+    <Image Include="res\greenButton.bmp" />
+    <Image Include="res\redButton.bmp" />
+    <Image Include="res\Test1.bmp" />
+    <Image Include="res\Test2.bmp" />
     <Image Include="res\YEYTotalProject.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

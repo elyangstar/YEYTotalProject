@@ -4,7 +4,7 @@
 #include "CCalendarDlg.h"
 #include "CDlgFileIO.h"
 #include "CDlgPosition.h"
-#include "CDlgControlButtonRadio.h"
+#include "CDlgButtonCtrl.h"
 
 #pragma once
 class CCalendarDlg;
@@ -56,7 +56,7 @@ public:
 	CCalendarDlg			*m_pDlgCalendar;
 	CDlgFileIO				*m_pDlgFileIO;
 	CDlgPosition			*m_pDlgPosition;
-	CDlgControlButtonRadio	*m_pDlgCtrlButtonRadio;
+	CDlgButtonCtrl			*m_pDlgButtonCtrl;
 
 	void			DialogCreation();
 	void			DialogShow();

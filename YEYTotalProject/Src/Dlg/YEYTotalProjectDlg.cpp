@@ -58,7 +58,7 @@ CYEYTotalProjectDlg::CYEYTotalProjectDlg(CWnd* pParent /*=nullptr*/)
 	m_pDlgCalendar	= new CCalendarDlg(this);
 	m_pDlgFileIO	= new CDlgFileIO(this);
 	m_pDlgPosition = new CDlgPosition(this);
-	m_pDlgCtrlButtonRadio = new CDlgControlButtonRadio(this);
+	m_pDlgButtonCtrl = new CDlgButtonCtrl(this);
 
 }
 
@@ -79,10 +79,10 @@ CYEYTotalProjectDlg::~CYEYTotalProjectDlg()
 		delete m_pDlgPosition;
 		m_pDlgPosition = NULL;
 	}
-	if (m_pDlgCtrlButtonRadio)
+	if (m_pDlgButtonCtrl)
 	{
-		delete m_pDlgCtrlButtonRadio;
-		m_pDlgCtrlButtonRadio = NULL;
+		delete m_pDlgButtonCtrl;
+		m_pDlgButtonCtrl = NULL;
 	}
 }
 
@@ -236,8 +236,8 @@ void CYEYTotalProjectDlg::DialogCreation()
 	m_pDlgPosition->Create(CDlgPosition::IDD, this);
 	m_pDlgPosition->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
 
-	m_pDlgCtrlButtonRadio->Create(CDlgControlButtonRadio::IDD, this);
-	m_pDlgCtrlButtonRadio->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
+	m_pDlgButtonCtrl->Create(CDlgButtonCtrl::IDD, this);
+	m_pDlgButtonCtrl->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
 	//DialogShow();
 }
 
@@ -250,7 +250,8 @@ void CYEYTotalProjectDlg::DialogShow()
 	m_pDlgCalendar->ShowWindow(SW_HIDE);
 	m_pDlgFileIO->ShowWindow(SW_HIDE);
 	m_pDlgPosition->ShowWindow(SW_HIDE);
-	 
+	m_pDlgButtonCtrl->ShowWindow(SW_HIDE);
+
 	if (strCurText == "Calendar")
 		m_pDlgCalendar->ShowWindow(SW_SHOW);
 	else if (strCurText == "File Input & Output")
@@ -258,7 +259,7 @@ void CYEYTotalProjectDlg::DialogShow()
 	else if (strCurText == "Mouse & Dialog")
 		m_pDlgPosition->ShowWindow(SW_SHOW);
 	else if (strCurText == "Button & Radio")
-		m_pDlgCtrlButtonRadio->ShowWindow(SW_SHOW);
+		m_pDlgButtonCtrl->ShowWindow(SW_SHOW);
 }
 //************************************************************************************************************************END
 

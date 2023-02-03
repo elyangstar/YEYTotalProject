@@ -57,7 +57,7 @@
     <ClInclude Include="Src\Dlg\CDlgPositionChild.h">
       <Filter>헤더 파일\Header_Dlg</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Dlg\CDlgControlButtonRadio.h">
+    <ClInclude Include="Src\Dlg\CDlgButtonCtrl.h">
       <Filter>헤더 파일\Header_Dlg</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,7 +83,7 @@
     <ClCompile Include="Src\Dlg\CDlgPositionChild.cpp">
       <Filter>소스 파일\Dlg</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Dlg\CDlgControlButtonRadio.cpp">
+    <ClCompile Include="Src\Dlg\CDlgButtonCtrl.cpp">
       <Filter>소스 파일\Dlg</Filter>
     </ClCompile>
   </ItemGroup>
@@ -99,6 +99,24 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\YEYTotalProject.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\CLedButton_src\res\greenButton.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\CLedButton_src\res\redButton.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\greenButton.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\redButton.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\Test1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\Test2.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
