@@ -58,6 +58,8 @@ CYEYTotalProjectDlg::CYEYTotalProjectDlg(CWnd* pParent /*=nullptr*/)
 	m_pDlgCalendar	= new CCalendarDlg(this);
 	m_pDlgFileIO	= new CDlgFileIO(this);
 	m_pDlgPosition = new CDlgPosition(this);
+	m_pDlgCtrlButtonRadio = new CDlgControlButtonRadio(this);
+
 }
 
 CYEYTotalProjectDlg::~CYEYTotalProjectDlg()
@@ -76,6 +78,11 @@ CYEYTotalProjectDlg::~CYEYTotalProjectDlg()
 	{
 		delete m_pDlgPosition;
 		m_pDlgPosition = NULL;
+	}
+	if (m_pDlgCtrlButtonRadio)
+	{
+		delete m_pDlgCtrlButtonRadio;
+		m_pDlgCtrlButtonRadio = NULL;
 	}
 }
 
@@ -193,6 +200,7 @@ void CYEYTotalProjectDlg::TreeCtrlSetting()
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Calendar", 0, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"File Input & Output", 1, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Mouse & Dialog", 1, 0, m_hParent1, TVI_LAST);
+	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Button & Radio", 1, 0, m_hParent1, TVI_LAST);
 	
 	m_hParent2 = m_TreeCtrl.InsertItem((LPCTSTR)"두번째항목", 0, 0, m_TreeRoot, TVI_LAST);
 	m_hChild2 = m_TreeCtrl.InsertItem((LPCTSTR)"Toast Test", 0, 0, m_hParent2, TVI_LAST);
@@ -228,6 +236,8 @@ void CYEYTotalProjectDlg::DialogCreation()
 	m_pDlgPosition->Create(CDlgPosition::IDD, this);
 	m_pDlgPosition->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
 
+	m_pDlgCtrlButtonRadio->Create(CDlgControlButtonRadio::IDD, this);
+	m_pDlgCtrlButtonRadio->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
 	//DialogShow();
 }
 
@@ -247,6 +257,8 @@ void CYEYTotalProjectDlg::DialogShow()
 		m_pDlgFileIO->ShowWindow(SW_SHOW);
 	else if (strCurText == "Mouse & Dialog")
 		m_pDlgPosition->ShowWindow(SW_SHOW);
+	else if (strCurText == "Button & Radio")
+		m_pDlgCtrlButtonRadio->ShowWindow(SW_SHOW);
 }
 //************************************************************************************************************************END
 

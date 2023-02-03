@@ -24,6 +24,8 @@ CDlgPosition::CDlgPosition(CWnd* pParent /*=nullptr*/)
 	m_nClientDlgSizeX = 0;
 	m_nClientDlgSizeY = 0;
 
+	m_nCtrlIndex = 0;
+
 	m_pDlgPositionChild = new CDlgPositionChild;
 }
 
@@ -62,6 +64,7 @@ BEGIN_MESSAGE_MAP(CDlgPosition, CDialog)
 	ON_BN_CLICKED(IDC_BTN_DOMODAL_OPEN, &CDlgPosition::OnBnClickedBtnDomodalOpen)
 	ON_BN_CLICKED(IDC_BTN_NEW_CREATE_OPEN, &CDlgPosition::OnBnClickedBtnNewCreateOpen)
 	ON_WM_CTLCOLOR()
+	ON_BN_CLICKED(IDC_BTN_CHANGE_TEXT_COLOR, &CDlgPosition::OnBnClickedBtnChangeTextColor)
 END_MESSAGE_MAP()
 
 
@@ -288,6 +291,8 @@ void CDlgPosition::OnBnClickedBtnChangeBackgroundColor()
 			m_RadioIndex = i;
 	}
 
+	m_nCtrlIndex = eStatic;
+
 	SendMessage(WM_ERASEBKGND);
 	Invalidate(FALSE);
 }
@@ -329,8 +334,9 @@ HBRUSH CDlgPosition::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	m_BackGroundBrushColor.DeleteObject();
 
-	COLORREF cl;
+	COLORREF cl, cl2;
 	cl = RGB(GetDlgItemInt(IDC_BACKGROUND_R), GetDlgItemInt(IDC_BACKGROUND_G), GetDlgItemInt(IDC_BACKGROUND_B));
+	cl2 = RGB(GetDlgItemInt(IDC_BACKGROUND_TEXT_R), GetDlgItemInt(IDC_BACKGROUND_TEXT_G), GetDlgItemInt(IDC_BACKGROUND_TEXT_B));
 
 	if (GetDlgItemInt(IDC_BACKGROUND_R) == 0 && GetDlgItemInt(IDC_BACKGROUND_G) == 0 && GetDlgItemInt(IDC_BACKGROUND_B) == 0)
 		cl = RGB(240, 240, 240);
@@ -339,10 +345,16 @@ HBRUSH CDlgPosition::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	if (nCtlColor == CTLCOLOR_STATIC)
+	if (nCtlColor == CTLCOLOR_STATIC && m_nCtrlIndex == 0)
 	{
 		pDC->SetBkColor(cl);
+		pDC->SetTextColor(cl2);
 		return m_BackGroundBrushColor;
+	}
+	else if (m_nCtrlIndex == 2)
+	{
+		pDC->SetTextColor(cl2);
+		pDC->SetBkColor(cl);
 	}
 		
 	return hbr;
@@ -377,3 +389,10 @@ void CDlgPosition::OnBnClickedBtnNewCreateOpen()
 //자식 다이얼로그를 생성하는 방법1 - 생성자 New로 생성**********************************************************End
 
 
+
+
+void CDlgPosition::OnBnClickedBtnChangeTextColor()
+{
+	m_nCtrlIndex = eTest;
+	Invalidate(FALSE);
+}

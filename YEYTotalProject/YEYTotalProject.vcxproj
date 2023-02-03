@@ -193,6 +193,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Src\Dlg\CCalendarDlg.h" />
+    <ClInclude Include="Src\Dlg\CDlgControlButtonRadio.h" />
     <ClInclude Include="Src\Dlg\CDlgFileIO.h" />
     <ClInclude Include="Src\Dlg\CDlgPosition.h" />
     <ClInclude Include="Src\Dlg\CDlgPositionChild.h" />
@@ -208,6 +209,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Src\Dlg\CCalendarDlg.cpp" />
+    <ClCompile Include="Src\Dlg\CDlgControlButtonRadio.cpp" />
     <ClCompile Include="Src\Dlg\CDlgFileIO.cpp" />
     <ClCompile Include="Src\Dlg\CDlgPosition.cpp" />
     <ClCompile Include="Src\Dlg\CDlgPositionChild.cpp" />

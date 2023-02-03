@@ -11,6 +11,7 @@
 #define IDD_DLG_FILEIO                  132
 #define IDD_DLG_POSITION                136
 #define IDD_DLG_POSITION_CHILD          138
+#define IDD_DIALOG_BTN_RADIO            140
 #define IDC_TREE_CONTROL                1000
 #define IDC_MONTHCALENDAR               1001
 #define IDC_DATETIMEPICKER1             1002
@@ -84,14 +85,20 @@
 #define IDC_BTN_CHANGE_BACKGROUND_COLOR 1060
 #define IDC_BTN_DOMODAL_OPEN            1061
 #define IDC_BTN_NEW_CREATE_OPEN         1062
+#define IDC_BACKGROUND_TEXT_R           1063
+#define IDC_BACKGROUND_TEXT_G           1064
+#define IDC_BUTTON1                     1064
+#define IDC_BACKGROUND_TEXT_B           1065
+#define IDC_CHECK_CHANGE_COLOR          1065
+#define IDC_BTN_CHANGE_TEXT_COLOR       1066
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_RESOURCE_VALUE        142
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1062
+#define _APS_NEXT_CONTROL_VALUE         1066
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

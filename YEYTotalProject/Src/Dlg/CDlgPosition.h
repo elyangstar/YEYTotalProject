@@ -2,7 +2,7 @@
 #include "CDlgPositionChild.h"
 
 // CDlgPosition 대화 상자
-
+enum {eStatic = 0, eEdit , eTest};
 class CDlgPosition : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgPosition)
@@ -33,6 +33,7 @@ public:
 	
 	int				m_nClientDlgSizeX;
 	int				m_nClientDlgSizeY;
+	int				m_nCtrlIndex;
 
 	CBrush			m_BackGroundBrushColor;
 
@@ -62,4 +63,5 @@ public:
 	afx_msg void OnBnClickedBtnDomodalOpen();
 	afx_msg void OnBnClickedBtnNewCreateOpen();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnBnClickedBtnChangeTextColor();
 };
