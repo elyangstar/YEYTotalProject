@@ -54,6 +54,9 @@
     <ClInclude Include="Src\Dlg\CDlgPosition.h">
       <Filter>헤더 파일\Header_Dlg</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Dlg\CDlgPositionChild.h">
+      <Filter>헤더 파일\Header_Dlg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YEYTotalProject.cpp">
@@ -72,6 +75,9 @@
       <Filter>소스 파일\Dlg</Filter>
     </ClCompile>
     <ClCompile Include="Src\Dlg\CDlgPosition.cpp">
+      <Filter>소스 파일\Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Dlg\CDlgPositionChild.cpp">
       <Filter>소스 파일\Dlg</Filter>
     </ClCompile>
   </ItemGroup>

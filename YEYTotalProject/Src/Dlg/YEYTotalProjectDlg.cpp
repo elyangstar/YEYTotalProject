@@ -72,6 +72,11 @@ CYEYTotalProjectDlg::~CYEYTotalProjectDlg()
 		delete m_pDlgFileIO;
 		m_pDlgFileIO = NULL;
 	}
+	if (m_pDlgPosition)
+	{
+		delete m_pDlgPosition;
+		m_pDlgPosition = NULL;
+	}
 }
 
 void CYEYTotalProjectDlg::DoDataExchange(CDataExchange* pDX)
@@ -187,7 +192,7 @@ void CYEYTotalProjectDlg::TreeCtrlSetting()
 	m_hParent1 = m_TreeCtrl.InsertItem((LPCTSTR)"Control", 0, 0, m_TreeRoot, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Calendar", 0, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"File Input & Output", 1, 0, m_hParent1, TVI_LAST);
-	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Mouse Position & Dialog Position", 1, 0, m_hParent1, TVI_LAST);
+	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Mouse & Dialog", 1, 0, m_hParent1, TVI_LAST);
 	
 	m_hParent2 = m_TreeCtrl.InsertItem((LPCTSTR)"두번째항목", 0, 0, m_TreeRoot, TVI_LAST);
 	m_hChild2 = m_TreeCtrl.InsertItem((LPCTSTR)"Toast Test", 0, 0, m_hParent2, TVI_LAST);
@@ -240,7 +245,7 @@ void CYEYTotalProjectDlg::DialogShow()
 		m_pDlgCalendar->ShowWindow(SW_SHOW);
 	else if (strCurText == "File Input & Output")
 		m_pDlgFileIO->ShowWindow(SW_SHOW);
-	else if (strCurText == "Mouse Position & Dialog Position")
+	else if (strCurText == "Mouse & Dialog")
 		m_pDlgPosition->ShowWindow(SW_SHOW);
 }
 //************************************************************************************************************************END

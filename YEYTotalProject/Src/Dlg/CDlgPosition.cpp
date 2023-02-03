@@ -13,18 +13,28 @@ IMPLEMENT_DYNAMIC(CDlgPosition, CDialog)
 
 CDlgPosition::CDlgPosition(CWnd* pParent /*=nullptr*/)
 	: CDialog(IDD_DLG_POSITION, pParent)
-	, m_nMainDlgSizeX(0)
-	, m_nClientDlgSizeX(0)
-	, m_nClientDlgSizeY(0)
 {
 	m_strMoveData = "";
 	m_strDlgPosition = "";
 	m_nMainDlgSizeX = 0;
 	m_nMainDlgSizeY = 0;
+	m_RadioIndex = -1;
+
+	m_nMainDlgSizeX = 0;
+	m_nClientDlgSizeX = 0;
+	m_nClientDlgSizeY = 0;
+
+	m_pDlgPositionChild = new CDlgPositionChild;
 }
 
 CDlgPosition::~CDlgPosition()
 {
+	if (m_pDlgPositionChild != NULL)		//이놈은 소멸자에서 진행한다.
+	{
+		delete m_pDlgPositionChild;
+		m_pDlgPositionChild = NULL;
+	}
+	
 }
 
 void CDlgPosition::DoDataExchange(CDataExchange* pDX)
@@ -48,6 +58,10 @@ BEGIN_MESSAGE_MAP(CDlgPosition, CDialog)
 	ON_WM_ERASEBKGND()
 	ON_BN_CLICKED(IDC_BTN_SAVE_SPECIFIC_POS, &CDlgPosition::OnBnClickedBtnSaveSpecificPos)
 	ON_BN_CLICKED(IDC_BTN_SAVE_SPECIFIC_POS_CLIENT, &CDlgPosition::OnBnClickedBtnSaveSpecificPosClient)
+	ON_BN_CLICKED(IDC_BTN_CHANGE_BACKGROUND_COLOR, &CDlgPosition::OnBnClickedBtnChangeBackgroundColor)
+	ON_BN_CLICKED(IDC_BTN_DOMODAL_OPEN, &CDlgPosition::OnBnClickedBtnDomodalOpen)
+	ON_BN_CLICKED(IDC_BTN_NEW_CREATE_OPEN, &CDlgPosition::OnBnClickedBtnNewCreateOpen)
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -176,20 +190,6 @@ void CDlgPosition::OnBnClickedBtnChangeDlgClientSize()
 }
 //Client Rect을 사용하여 위치를 가져옴**********************************************************End
 
-//return TRUE가 아니면 배경색은 변경되지 않는다. 슈발**********************************************************Start
-BOOL CDlgPosition::OnEraseBkgnd(CDC* pDC)
-{
-	CRect winRC;
-	GetClientRect(winRC);
-
-	CBrush bkBrush(RGB(230, 230, 230));
-	CBrush* pOldBrush = pDC->SelectObject(&bkBrush);
-	pDC->Rectangle(winRC);
-	pDC->SelectObject(pOldBrush);
-
-	return TRUE;
-}
-//return TRUE가 아니면 배경색은 변경되지 않는다. 슈발**********************************************************End
 
 //MainFrame Left Top 위치를 기준으로 Print Scrreen 하는방법**********************************************************Start
 void CDlgPosition::OnBnClickedBtnSaveSpecificPos()
@@ -274,3 +274,106 @@ void CDlgPosition::OnBnClickedBtnSaveSpecificPosClient()
 	::ShellExecute(NULL, "open", "D:\\YEY\\12345.jpg", NULL, NULL, SW_SHOW);
 }
 //Child 기준 Left Top 위치를 기준으로 Print Scrreen 하는방법**********************************************************End
+
+
+void CDlgPosition::OnBnClickedBtnChangeBackgroundColor()
+{
+	BOOL bCheckUse = FALSE;
+
+	for (int i = 0; i < 2 ; i++)
+	{
+		bCheckUse = ((CButton*)GetDlgItem(IDC_RADIO_BACK_DRAW_1 + i))->GetCheck();
+
+		if (bCheckUse == TRUE)
+			m_RadioIndex = i;
+	}
+
+	SendMessage(WM_ERASEBKGND);
+	Invalidate(FALSE);
+}
+
+//return TRUE가 아니면 배경색은 변경되지 않는다. 슈발**********************************************************Start
+BOOL CDlgPosition::OnEraseBkgnd(CDC* pDC)
+{
+	CClientDC dc(this);
+	BOOL bCheckUse = FALSE;
+	COLORREF cl;
+
+	m_BackGroundBrushColor.DeleteObject();
+	cl = RGB(GetDlgItemInt(IDC_BACKGROUND_R), GetDlgItemInt(IDC_BACKGROUND_G), GetDlgItemInt(IDC_BACKGROUND_B));
+	m_BackGroundBrushColor.CreateSolidBrush(cl);
+
+	if (m_RadioIndex == 0 )
+	{
+		CRect rect;
+		GetClientRect(rect);
+		dc.FillSolidRect(rect, cl);
+
+	}
+	else if (m_RadioIndex == 1)
+	{
+		CRect winRC;
+		GetClientRect(winRC);
+		
+		CBrush* pOldBrush = dc.SelectObject(&m_BackGroundBrushColor);
+		dc.Rectangle(winRC);
+		dc.SelectObject(pOldBrush);
+	}
+
+	return TRUE;
+}
+//return TRUE가 아니면 배경색은 변경되지 않는다. 슈발**********************************************************End
+
+//배경색을 변경했으면 Ctrl 색도 변경해야 한다*********************************************Start
+HBRUSH CDlgPosition::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	m_BackGroundBrushColor.DeleteObject();
+
+	COLORREF cl;
+	cl = RGB(GetDlgItemInt(IDC_BACKGROUND_R), GetDlgItemInt(IDC_BACKGROUND_G), GetDlgItemInt(IDC_BACKGROUND_B));
+
+	if (GetDlgItemInt(IDC_BACKGROUND_R) == 0 && GetDlgItemInt(IDC_BACKGROUND_G) == 0 && GetDlgItemInt(IDC_BACKGROUND_B) == 0)
+		cl = RGB(240, 240, 240);
+
+	m_BackGroundBrushColor.CreateSolidBrush(cl);
+
+	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	if (nCtlColor == CTLCOLOR_STATIC)
+	{
+		pDC->SetBkColor(cl);
+		return m_BackGroundBrushColor;
+	}
+		
+	return hbr;
+}
+//배경색을 변경했으면 Ctrl 색도 변경해야 한다*********************************************End
+
+//자식 다이얼로그를 생성하는 방법1 - DoModal**********************************************************Start
+//0. 리소스 탭에서 다이얼로그 생성을하고, 클래스를 생성까지한다.
+//1. Header File 을 추가한다.
+//2. Header파일의 클래스를 멤버 변수로 호출한다.
+void CDlgPosition::OnBnClickedBtnDomodalOpen()
+{
+	CDlgPositionChild DlgPositionChild;
+	DlgPositionChild.DoModal();		//얘가 종료되기 전까지 다른 Dialog는 건드릴수 없음.
+}
+//자식 다이얼로그를 생성하는 방법1 - DoModal**********************************************************End
+
+
+
+//자식 다이얼로그를 생성하는 방법1 - 생성자 New로 생성**********************************************************Start
+void CDlgPosition::OnBnClickedBtnNewCreateOpen()
+{
+	//if (m_pDlgPositionChild != NULL)		//이놈은 소멸자에서 진행한다.
+	//	delete m_pDlgPositionChild;
+
+	//m_pDlgPositionChild = new CDlgPositionChild;	//이놈은 생성자에서 진행한다. 매번생성하면 안됨. 메모리 누수
+	m_pDlgPositionChild->DestroyWindow();	//생성된 놈을 계속 Create 하려다보면 에러가 발생하기 때문에 DestoryWidnow진행
+	m_pDlgPositionChild->Create(IDD_DLG_POSITION_CHILD);
+	m_pDlgPositionChild->ShowWindow(SW_SHOW);	//얘가 실행되더라도 아무작업이나 해도됨.
+	
+}
+//자식 다이얼로그를 생성하는 방법1 - 생성자 New로 생성**********************************************************End
+
+

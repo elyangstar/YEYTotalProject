@@ -10,6 +10,7 @@
 #define IDD_DLG_CALENDAR                130
 #define IDD_DLG_FILEIO                  132
 #define IDD_DLG_POSITION                136
+#define IDD_DLG_POSITION_CHILD          138
 #define IDC_TREE_CONTROL                1000
 #define IDC_MONTHCALENDAR               1001
 #define IDC_DATETIMEPICKER1             1002
@@ -68,21 +69,29 @@
 #define IDC_EDIT_FILECOPY_DST           1047
 #define IDC_EDIT_HEIGHT_CLIENT          1047
 #define IDC_BTN_COPY_2                  1048
-#define IDC_DLG_POSITION_PRINT          1049
+#define IDC_DLG_POSITION_PRINT          1048
+#define IDC_RADIO_BACK_DRAW_1           1049
+#define IDC_RADIO_BACK_DRAW_2           1050
+#define IDC_BACKGROUND_R                1051
 #define IDC_BTN_CHANGE_DLG_SIZE         1052
 #define IDC_EDIT_DLGSIZE_X              1053
 #define IDC_EDIT_DLGSIZE_Y              1054
 #define IDC_BTN_CHANGE_DLG_CLIENT_SIZE  1055
 #define IDC_EDIT_DLGSIZE_CLIENT_X       1056
 #define IDC_EDIT_DLGSIZE_CLIENT_Y       1057
+#define IDC_BACKGROUND_G                1058
+#define IDC_BACKGROUND_B                1059
+#define IDC_BTN_CHANGE_BACKGROUND_COLOR 1060
+#define IDC_BTN_DOMODAL_OPEN            1061
+#define IDC_BTN_NEW_CREATE_OPEN         1062
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        138
+#define _APS_NEXT_RESOURCE_VALUE        140
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1045
+#define _APS_NEXT_CONTROL_VALUE         1062
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "CDlgPositionChild.h"
 
 // CDlgPosition 대화 상자
 
@@ -28,7 +28,16 @@ public:
 	
 	int				m_nMainDlgSizeX;
 	int				m_nMainDlgSizeY;
+
+	int				m_RadioIndex;
 	
+	int				m_nClientDlgSizeX;
+	int				m_nClientDlgSizeY;
+
+	CBrush			m_BackGroundBrushColor;
+
+	CDlgPositionChild *m_pDlgPositionChild;
+
 	//Dialog 위치 값 MainFrame에서 받아오는함수
 	void			SetWindowPosAndRect(CRect rt);
 	CRect			GetWindowPosAndRect();
@@ -45,10 +54,12 @@ public:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnBnClickedBtnChangeDlgSize();
 	afx_msg void OnBnClickedBtnChangeDlgClientSize();
-	int m_nClientDlgSizeX;
-	int m_nClientDlgSizeY;
+
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg void OnBnClickedBtnSaveSpecificPos();
 	afx_msg void OnBnClickedBtnSaveSpecificPosClient();
+	afx_msg void OnBnClickedBtnChangeBackgroundColor();
+	afx_msg void OnBnClickedBtnDomodalOpen();
+	afx_msg void OnBnClickedBtnNewCreateOpen();
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };
