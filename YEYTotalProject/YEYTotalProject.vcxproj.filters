@@ -119,5 +119,17 @@
     <Image Include="res\Test2.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="res\radio_of32.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\radio_on32.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\checkOFF.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\checkON.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

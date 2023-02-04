@@ -15,16 +15,27 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
-
+	virtual BOOL OnInitDialog();
 	DECLARE_MESSAGE_MAP()
 public:
 	CMFCButton m_CheckClickColor;
-	afx_msg void OnBnClickedCheckClickColor();
-	CBitmapButton m_BtnImageInput;
-	afx_msg void OnBnClickedBtnImgInput();
-	afx_msg void OnPaint();
 
-//	afx_msg void OnBnClickedCheckColorChange();
-	CMFCButton m_BtnColorChange;
+	CMFCButton m_BtnImageInputMFCButton;
+
+	CMFCButton m_btnRadio1;
+	CMFCButton m_btnRadio2;
+	CMFCButton m_btnRadio3;
+	CMFCButton m_btnRadio4;
+
+	CMFCButton m_CheckBtnChangeImage;
+
+	CBitmapButton m_BtnImageInputBitmapButton;
+
+	int m_nImageLocation;
+
+	afx_msg void OnBnClickedCheckClickColor();
+	afx_msg void OnPaint();
 	afx_msg void OnBnClickedCheckColorChange();
+	afx_msg void OnCbnSelchangeComboImageLoc();
+
 };

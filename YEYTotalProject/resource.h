@@ -17,6 +17,10 @@
 #define IDB_BITMAP_RED                  148
 #define IDB_BITMAP_TEST1                149
 #define IDB_BITMAP_TEST2                150
+#define IDB_RADIO_OFF                   152
+#define IDB_RADIO_ON                    153
+#define IDB_CHECK_ON                    154
+#define IDB_CHECK_OFF                   155
 #define IDC_TREE_CONTROL                1000
 #define IDC_MONTHCALENDAR               1001
 #define IDC_DATETIMEPICKER1             1002
@@ -98,14 +102,20 @@
 #define IDC_CHECK_CLICK_COLOR           1069
 #define IDC_BTN_IMG_INPUT               1070
 #define IDC_CHECK_COLOR_CHANGE          1071
+#define IDC_COMBO_IMAGE_LOC             1074
+#define IDC_RADIO1                      1075
+#define IDC_RADIO2                      1076
+#define IDC_RADIO3                      1077
+#define IDC_RADIO4                      1078
+#define IDC_CHECK1                      1079
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        151
+#define _APS_NEXT_RESOURCE_VALUE        156
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1074
+#define _APS_NEXT_CONTROL_VALUE         1080
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

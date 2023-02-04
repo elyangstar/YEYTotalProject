@@ -200,7 +200,7 @@ void CYEYTotalProjectDlg::TreeCtrlSetting()
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Calendar", 0, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"File Input & Output", 1, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Mouse & Dialog", 1, 0, m_hParent1, TVI_LAST);
-	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Button & Radio", 1, 0, m_hParent1, TVI_LAST);
+	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Button Control", 1, 0, m_hParent1, TVI_LAST);
 	
 	m_hParent2 = m_TreeCtrl.InsertItem((LPCTSTR)"두번째항목", 0, 0, m_TreeRoot, TVI_LAST);
 	m_hChild2 = m_TreeCtrl.InsertItem((LPCTSTR)"Toast Test", 0, 0, m_hParent2, TVI_LAST);
@@ -258,7 +258,7 @@ void CYEYTotalProjectDlg::DialogShow()
 		m_pDlgFileIO->ShowWindow(SW_SHOW);
 	else if (strCurText == "Mouse & Dialog")
 		m_pDlgPosition->ShowWindow(SW_SHOW);
-	else if (strCurText == "Button & Radio")
+	else if (strCurText == "Button Control")
 		m_pDlgButtonCtrl->ShowWindow(SW_SHOW);
 }
 //************************************************************************************************************************END

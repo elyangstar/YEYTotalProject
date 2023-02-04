@@ -225,7 +225,11 @@
   <ItemGroup>
     <Image Include="..\..\..\Downloads\CLedButton_src\res\greenButton.bmp" />
     <Image Include="..\..\..\Downloads\CLedButton_src\res\redButton.bmp" />
+    <Image Include="res\checkOFF.bmp" />
+    <Image Include="res\checkON.bmp" />
     <Image Include="res\greenButton.bmp" />
+    <Image Include="res\radio_of32.bmp" />
+    <Image Include="res\radio_on32.bmp" />
     <Image Include="res\redButton.bmp" />
     <Image Include="res\Test1.bmp" />
     <Image Include="res\Test2.bmp" />
