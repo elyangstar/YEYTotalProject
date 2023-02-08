@@ -60,6 +60,12 @@
     <ClInclude Include="Src\Dlg\CDlgButtonCtrl.h">
       <Filter>헤더 파일\Header_Dlg</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Dlg\CDlgGridCtrl.h">
+      <Filter>헤더 파일\Header_Dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Dlg\CDlgRegistry.h">
+      <Filter>헤더 파일\Header_Dlg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YEYTotalProject.cpp">
@@ -84,6 +90,12 @@
       <Filter>소스 파일\Dlg</Filter>
     </ClCompile>
     <ClCompile Include="Src\Dlg\CDlgButtonCtrl.cpp">
+      <Filter>소스 파일\Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Dlg\CDlgGridCtrl.cpp">
+      <Filter>소스 파일\Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Dlg\CDlgRegistry.cpp">
       <Filter>소스 파일\Dlg</Filter>
     </ClCompile>
   </ItemGroup>

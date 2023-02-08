@@ -59,6 +59,8 @@ CYEYTotalProjectDlg::CYEYTotalProjectDlg(CWnd* pParent /*=nullptr*/)
 	m_pDlgFileIO	= new CDlgFileIO(this);
 	m_pDlgPosition = new CDlgPosition(this);
 	m_pDlgButtonCtrl = new CDlgButtonCtrl(this);
+	m_pDlgGridCtrl = new CDlgGridCtrl(this);
+	m_pDlgRegistry = new CDlgRegistry(this);
 
 }
 
@@ -83,6 +85,16 @@ CYEYTotalProjectDlg::~CYEYTotalProjectDlg()
 	{
 		delete m_pDlgButtonCtrl;
 		m_pDlgButtonCtrl = NULL;
+	}
+	if (m_pDlgGridCtrl)
+	{
+		delete m_pDlgGridCtrl;
+		m_pDlgGridCtrl = NULL;
+	}
+	if (m_pDlgRegistry)
+	{
+		delete m_pDlgRegistry;
+		m_pDlgRegistry = NULL;
 	}
 }
 
@@ -201,8 +213,10 @@ void CYEYTotalProjectDlg::TreeCtrlSetting()
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"File Input & Output", 1, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Mouse & Dialog", 1, 0, m_hParent1, TVI_LAST);
 	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Button Control", 1, 0, m_hParent1, TVI_LAST);
+	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Grid Control", 1, 0, m_hParent1, TVI_LAST);
+	m_hChild1 = m_TreeCtrl.InsertItem((LPCTSTR)"Registry & environment Value", 1, 0, m_hParent1, TVI_LAST);
 	
-	m_hParent2 = m_TreeCtrl.InsertItem((LPCTSTR)"두번째항목", 0, 0, m_TreeRoot, TVI_LAST);
+	m_hParent2 = m_TreeCtrl.InsertItem((LPCTSTR)"기타 프로젝트_Made by YEY", 0, 0, m_TreeRoot, TVI_LAST);
 	m_hChild2 = m_TreeCtrl.InsertItem((LPCTSTR)"Toast Test", 0, 0, m_hParent2, TVI_LAST);
 
 }
@@ -238,6 +252,13 @@ void CYEYTotalProjectDlg::DialogCreation()
 
 	m_pDlgButtonCtrl->Create(CDlgButtonCtrl::IDD, this);
 	m_pDlgButtonCtrl->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
+
+	m_pDlgGridCtrl->Create(CDlgGridCtrl::IDD, this);
+	m_pDlgGridCtrl->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
+
+	m_pDlgRegistry->Create(CDlgRegistry::IDD, this);
+	m_pDlgRegistry->MoveWindow(WINDOW_START_X, WINDOW_START_Y, WINDOW_SIZE_H, WINDOW_SIZE_V);
+
 	//DialogShow();
 }
 
@@ -251,6 +272,8 @@ void CYEYTotalProjectDlg::DialogShow()
 	m_pDlgFileIO->ShowWindow(SW_HIDE);
 	m_pDlgPosition->ShowWindow(SW_HIDE);
 	m_pDlgButtonCtrl->ShowWindow(SW_HIDE);
+	m_pDlgGridCtrl->ShowWindow(SW_HIDE);
+	m_pDlgRegistry->ShowWindow(SW_HIDE);
 
 	if (strCurText == "Calendar")
 		m_pDlgCalendar->ShowWindow(SW_SHOW);
@@ -260,6 +283,11 @@ void CYEYTotalProjectDlg::DialogShow()
 		m_pDlgPosition->ShowWindow(SW_SHOW);
 	else if (strCurText == "Button Control")
 		m_pDlgButtonCtrl->ShowWindow(SW_SHOW);
+ 	else if (strCurText == "Grid Control")
+ 		m_pDlgGridCtrl->ShowWindow(SW_SHOW);
+	else if (strCurText == "Registry & environment Value")
+		m_pDlgRegistry->ShowWindow(SW_SHOW);
+	
 }
 //************************************************************************************************************************END
 

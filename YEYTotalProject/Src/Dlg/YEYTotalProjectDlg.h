@@ -5,6 +5,8 @@
 #include "CDlgFileIO.h"
 #include "CDlgPosition.h"
 #include "CDlgButtonCtrl.h"
+#include "CDlgGridCtrl.h"
+#include "CDlgRegistry.h"
 
 #pragma once
 class CCalendarDlg;
@@ -57,6 +59,8 @@ public:
 	CDlgFileIO				*m_pDlgFileIO;
 	CDlgPosition			*m_pDlgPosition;
 	CDlgButtonCtrl			*m_pDlgButtonCtrl;
+	CDlgGridCtrl			*m_pDlgGridCtrl;
+	CDlgRegistry			*m_pDlgRegistry;
 
 	void			DialogCreation();
 	void			DialogShow();
@@ -67,4 +71,5 @@ public:
 	//******************************************************************************************
 
 	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+	void Test();
 };

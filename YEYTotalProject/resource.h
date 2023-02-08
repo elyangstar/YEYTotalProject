@@ -21,27 +21,49 @@
 #define IDB_RADIO_ON                    153
 #define IDB_CHECK_ON                    154
 #define IDB_CHECK_OFF                   155
+#define IDD_DIALOG_GRIDCTRL             156
+#define IDD_DIALOG1                     160
+#define IDD_DLG_REGISTRY                160
 #define IDC_TREE_CONTROL                1000
+#define IDC_BUTTON_READ                 1000
 #define IDC_MONTHCALENDAR               1001
+#define IDC_BUTTON_CREATE_FOLDER        1001
 #define IDC_DATETIMEPICKER1             1002
+#define IDC_BUTTON_DELETE_PATH          1002
 #define IDC_BTN_GET_DATE                1003
+#define IDC_BUTTON_MODIFY_PATH          1003
 #define IDC_EDIT_PRINTDATE              1004
+#define IDC_BUTTON_NEW_CREATE           1004
 #define IDC_BTN_GET_MCDATE              1005
+#define IDC_BUTTON_CLOSE                1005
 #define IDC_EDIT_PRINTMCDATE            1006
 #define IDC_EDIT_BG_R                   1007
+#define IDC_BUTTON_OPEN                 1007
 #define IDC_EDIT_BG_G                   1008
+#define IDC_REGISTRY_CREATE_ITEM        1008
 #define IDC_EDIT_BG_B                   1009
+#define IDC_ENVIRONMENT_VALUE           1009
 #define IDC_RADIO_BACKGROUND            1010
+#define IDC_REGISTRY_READ_DATA          1010
 #define IDC_RADIO_CALENDAR_BK           1011
+#define IDC_REGISTRY_CREATE_ITEM3       1011
 #define IDC_RADIO_CALENDAR_TEXT         1012
+#define IDC_REGISTRY_CREATE_ITEM4       1012
 #define IDC_RADIO_CALENDAR_TITLE_BG     1013
+#define IDC_BUTTON_READ_ENVIRVALUE      1013
 #define IDC_RADIO_CALENDAR_TITLE_TEXT   1014
+#define IDC_ENVIRONMENT_NAME            1014
 #define IDC_BUTTON_CHANGE_COLOR         1015
+#define IDC_ENVIRONMENT_VALUE_MOD       1015
 #define IDC_BTN_CHANGE_COLOR_CAL        1016
 #define IDC_BTN_OPENFILE                1016
+#define IDC_BUTTON_READ_ENVIRVALUE2     1016
 #define IDC_EDIT_FILE_FULLPATH          1017
+#define IDC_REGISTRY_CREATE_ITEM2       1017
 #define IDC_EDIT_FILE_FILEPATH          1018
+#define IDC_BUTTON_READ_ENVIRVALUE3     1018
 #define IDC_EDIT_FILE_FILEEXT           1019
+#define IDC_ENVIRONMENT_REFRESH_DATA    1019
 #define IDC_EDIT_FILE_FILETITLE         1020
 #define IDC_EDIT_FILE_FILEREADONLY      1021
 #define IDC_EDIT_FILE_FILESTARTPOS      1022
@@ -100,7 +122,9 @@
 #define IDC_BTN_CHANGE_TEXT_COLOR       1067
 #define IDC_BUTTON1                     1069
 #define IDC_CHECK_CLICK_COLOR           1069
+#define IDC_BTN_SAVE_CSVFILE            1069
 #define IDC_BTN_IMG_INPUT               1070
+#define IDC_BTN_SAVE_HM                 1070
 #define IDC_CHECK_COLOR_CHANGE          1071
 #define IDC_COMBO_IMAGE_LOC             1074
 #define IDC_RADIO1                      1075
@@ -108,14 +132,22 @@
 #define IDC_RADIO3                      1077
 #define IDC_RADIO4                      1078
 #define IDC_CHECK1                      1079
+#define IDC_GRIDCTRL                    1082
+#define IDC_GRID_ROW_COUNT              1083
+#define IDC_BTN_LOAD_CSVFILE            1084
+#define IDC_STATIC_GRIDDATA_PATH        1085
+#define IDC_BTN_LOAD_HM                 1086
+#define IDC_FIND_DATA                   1087
+#define IDC_BTN_FIND_DATA               1088
+#define IDC_REGISTRY_PATH               1089
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        156
+#define _APS_NEXT_RESOURCE_VALUE        162
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1080
+#define _APS_NEXT_CONTROL_VALUE         1090
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
